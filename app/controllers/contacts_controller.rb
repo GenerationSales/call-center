@@ -1,5 +1,5 @@
 class ContactsController < ApplicationController
-  before_action :set_contact, only: [:show, :edit, :update, :destroy]
+  before_action :set_contact, only: [:show, :edit, :update, :destroy, :import]
 
   # GET /contacts
   # GET /contacts.json
@@ -10,6 +10,9 @@ class ContactsController < ApplicationController
   # GET /contacts/1
   # GET /contacts/1.json
   def show
+  end
+
+  def import
   end
 
   # GET /contacts/new
