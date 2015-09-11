@@ -15,3 +15,12 @@
 //= require turbolinks
 //= require_tree .
 //= require bootstrap-sprockets
+//= require plugins/breakpoints.js
+//= require plugins/jquery-unveil/jquery.unveil.min.js
+//= require plugins/jquery-block-ui/jqueryblockui.js
+//= require plugins/jquery-lazyload/jquery.lazyload.min.js
+//= require plugins/jquery-scrollbar/jquery.scrollbar.min.js
+//= require js/core.js
+//= require js/chat.js
+//= require js/demo.js
+//= requirej s/dashboard_v2.js

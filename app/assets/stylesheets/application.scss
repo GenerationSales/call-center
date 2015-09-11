@@ -14,3 +14,11 @@
 // "bootstrap-sprockets" must be imported before "bootstrap" and "bootstrap/variables"
 @import "bootstrap-sprockets";
 @import "bootstrap";
+@import "plugins/pace/pace-theme-flash";
+@import "plugins/jquery-slider/css/jquery.sidr.light.min";
+@import "plugins/bootstrap/css/bootstrap-responsive.min";
+@import "font-awesome";
+@import "css/animate.min";
+@import "css/style";
+@import "css/custom-icon-set";
+@import "css/responsive";
