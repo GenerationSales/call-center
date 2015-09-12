@@ -27,9 +27,7 @@
 	        	</li>
       		</ul>
 	      	<!-- BEGIN LOGO -->
-	      	<a href="index.html">
-	      		<img src="assets/img/logo.png" class="logo" alt=""  data-src="assets/img/logo.png" data-src-retina="assets/img/logo2x.png" width="106" height="21"/>
-	      	</a>
+	      	<%= link_to("Excelerated Sales", root_path) %>
 	      	<!-- END LOGO -->
 	      	<ul class="nav pull-right notifcation-center">
 	        	<li class="dropdown" id="header_task_bar"> 
@@ -349,6 +347,8 @@
     <div class="clearfix"></div>
     <div class="content sm-gutter">
       	<div class="page-title"></div>
+      	<p class="notice"><%= notice %></p>
+       	<p class="alert"><%= alert %></p>
       	<%= yield %>
 	</div>
 </div>
