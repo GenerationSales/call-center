@@ -27,7 +27,7 @@
 	        	</li>
       		</ul>
 	      	<!-- BEGIN LOGO -->
-	      	<%= link_to("Excelerated Sales", root_path) %>
+	      	<h3><%= link_to("Excelerated Sales", root_path) %></h3>
 	      	<!-- END LOGO -->
 	      	<ul class="nav pull-right notifcation-center">
 	        	<li class="dropdown" id="header_task_bar"> 
@@ -346,9 +346,10 @@
     </div>
     <div class="clearfix"></div>
     <div class="content sm-gutter">
-      	<div class="page-title"></div>
       	<p class="notice"><%= notice %></p>
-       	<p class="alert"><%= alert %></p>
+      	<% if alert %>
+       		<p class="alert"><%= alert %></p>
+       	<% end %>
       	<%= yield %>
 	</div>
 </div>

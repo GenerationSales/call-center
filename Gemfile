@@ -13,11 +13,13 @@ gem 'jbuilder', '~> 2.0'
 gem 'simple_form'
 gem "font-awesome-rails"
 gem 'devise'
+gem 'friendly_id', '~> 5.1.0'
 gem 'sdoc', '~> 0.4.0', group: :doc
 gem 'rails_12factor', group: :production
 group :development, :test do
   gem 'byebug'
   gem 'web-console', '~> 2.0'
   gem 'spring'
+  gem 'pry-rails'
 end
 

@@ -1,0 +1,14 @@
+<%= simple_form_for [:admin, @page] do |f| %>
+  <%= f.error_notification %>
+
+  <div class="form-inputs form">
+    <%= f.input :title, class: 'form-control' %>
+    <%= f.input :body, class: 'form-control' %>
+    <%= f.input :slug, class: 'form-control' %>
+    <%= f.select :category_id, Category.all.map {|category| [category.name,category.id]}, class: 'form-control' %>
+  </div>
+
+  <div class="form-actions">
+    <%= f.button :submit %>
+  </div>
+<% end %>

@@ -1,4 +1,12 @@
 Rails.application.routes.draw do
+  
+
+  namespace :admin do
+    resources :pages #/admin/pages
+    resources :categories
+  end
+  resources :categories
+  
   devise_for :users
   resources :contacts
 
@@ -15,6 +23,7 @@ Rails.application.routes.draw do
 
   # You can have the root of your site routed with "root"
    root to: 'companies#index'
+   get ':id' => 'pages#show', as: :page
 
   # Example of regular route:
   #   get 'products/:id' => 'catalog#view'

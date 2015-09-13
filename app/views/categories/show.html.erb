@@ -1,0 +1,8 @@
+<h1><%= @category.name %></h1>
+
+<% @category.pages.each do |p| %>
+	<h2><%= link_to(p.title, page_path(p.slug)) %></h2>
+	<em><%= p.created_at.to_formatted_s :long %></em>
+	<hr>
+
+<% end %>
