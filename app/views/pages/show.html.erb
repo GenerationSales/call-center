@@ -2,5 +2,5 @@
  <em> <%= time_ago_in_words(@page.created_at) %></em>
 
 <p>
-  <%= @page.body %>
+  <%= @page.body.html_safe %>
 </p>

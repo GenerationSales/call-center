@@ -14,6 +14,9 @@ gem 'simple_form'
 gem "font-awesome-rails"
 gem 'devise'
 gem 'friendly_id', '~> 5.1.0'
+gem 'ckeditor', github: 'galetahub/ckeditor'
+gem 'carrierwave'
+gem 'mini_magick'
 gem 'sdoc', '~> 0.4.0', group: :doc
 gem 'rails_12factor', group: :production
 group :development, :test do
@@ -21,5 +24,6 @@ group :development, :test do
   gem 'web-console', '~> 2.0'
   gem 'spring'
   gem 'pry-rails'
+  gem 'puma'
 end
 

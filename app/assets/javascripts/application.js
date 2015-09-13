@@ -23,4 +23,5 @@
 //= require js/core.js
 //= require js/chat.js
 //= require js/demo.js
-//= requirej s/dashboard_v2.js
+//= require js/dashboard_v2.js
+//= require ckeditor/init
