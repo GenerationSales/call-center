@@ -1,5 +1,5 @@
 module Admin
-  class CompaniesController < ApplicationController
+  class CompaniesController < AdminController
     before_action :set_company, only: [:show, :edit, :update, :destroy]
 
     # GET /companies
