@@ -5,15 +5,15 @@ Rails.application.routes.draw do
   namespace :admin do
     resources :pages #/admin/pages
     resources :categories
+    resources :contacts
+    resources :campaigns
+    resources :companies
   end
+
   resources :categories
   
   devise_for :users
-  resources :contacts
-
-  resources :campaigns
-
-  resources :companies
+  
 
   resources :import
 
