@@ -80,6 +80,7 @@ module Admin
         end
         @options = {:chunk_size => 1,:key_mapping => @new_hash, :remove_unmapped_keys => true, :row_sep => :auto, :file_encoding => 'iso-8859-1'}
         Company.import(@csv,@options)
+        Company.dedupe
         redirect_to admin_companies_path notice: "it worked"
       end
     end

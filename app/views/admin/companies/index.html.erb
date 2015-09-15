@@ -18,17 +18,29 @@
       <thead>
         <tr>
           <th>Name</th>
-          <th colspan="3"></th>
+          <th>Phone Number</th>
+          <th>Fax Number</th>
+          <th>Website</th>
+          <th>Employee Size</th>
+          <th>Revenue</th>
+          <th>Address</th>
+          <th>SIC Code</th>
+          <th>Industry</th>
         </tr>
       </thead>
 
       <tbody>
         <% @companies.each do |company| %>
           <tr>
-            <td><%= company.name %></td>
-            <td><%= link_to 'Show', admin_company_path(company) %></td>
-            <td><%= link_to 'Edit', edit_admin_company_path(company) %></td>
-            <td><%= link_to 'Destroy', admin_company_path(company), method: :delete, data: { confirm: 'Are you sure?' } %></td>
+            <td><%= link_to company.name, admin_company_path(company) %></td>
+            <td><%= number_to_phone(company.number, area_code: true) %></td>
+            <td><%= number_to_phone(company.fax, area_code: true) %></td>
+            <td><%= link_to company.website, company.website %></td>
+            <td><%= company.employee_size %></td>
+            <td><%= company.revenue %></td>
+            <td><%= company.street %>, <%= company.city %> <%= company.state %>, <%= company.zip %> <%= company.county %></td>
+            <td><%= company.sic_code %></td>
+            <td><%= company.industry %></td>
           </tr>
         <% end %>
       </tbody>
