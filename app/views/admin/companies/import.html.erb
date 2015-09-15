@@ -1,0 +1,28 @@
+<%= form_tag import_admin_companies_path do |f| %>
+<%= hidden_field_tag(:csv, @file) %>
+<table class="table table-striped">
+	<thead>
+		<tr>
+			<th>Import Field</th>
+			<th>Record</th>
+			<th>Mapping</th>
+		</tr>
+	</thead>
+<tbody>
+
+<% @import_field = Array.new %>
+<% @import.first.each do |k,v| %>
+<% @import_field.push([k]) %>
+
+<tr>
+<td><%= k %></td>
+<td><%= v %></td>
+<td><%= select_tag 'fields[]',options_for_select(@fields), include_blank: true %></td>
+</tr>
+<% end %>
+</tbody>
+</table>
+<%= @import_field = [@import_field] %>
+<%= hidden_field_tag(:old_field, @import_field.to_a) %>
+<%= submit_tag %>
+<% end %>

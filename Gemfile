@@ -17,6 +17,8 @@ gem 'friendly_id', '~> 5.1.0'
 gem 'ckeditor', github: 'galetahub/ckeditor'
 gem 'carrierwave'
 gem 'mini_magick'
+gem 'smarter_csv'
+gem 'kaminari'
 gem 'sdoc', '~> 0.4.0', group: :doc
 gem 'rails_12factor', group: :production
 group :development, :test do

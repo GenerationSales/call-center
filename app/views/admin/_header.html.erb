@@ -67,9 +67,11 @@
 	        	<div class="chat-toggler"> 
 	        		<a href="#" class="dropdown-toggle" id="my-task-list" data-placement="bottom"  data-content='' data-toggle="dropdown" data-original-title="Notifications">
 	          			<div class="user-details">
+	          				<% unless current_user.nil? %>
 		            		<div class="username"> 
 		            			<span class="badge badge-important">3</span><%= current_user.first_name %> <span class="semi-bold"><%= current_user.last_name %></span>
 		            		</div>
+		            		<% end %>
 	          			</div>
 	          			<div class="fa fa-chevron-down"></div>
 	          		</a>
@@ -113,7 +115,7 @@
 			            <!-- end of width 300 -->
 			        </div>
 		        	<!-- end of notification list -->
-		        	<% if current_user.avatar.present? %>
+		        	<% if !current_user.nil? && current_user.avatar.present? %>
 				      	<div class="profile-pic"> 
 				      		<%= image_tag(current_user.avatar.url, size: "35") %>
 				      	</div>

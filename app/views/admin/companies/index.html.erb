@@ -11,7 +11,7 @@
   <div class="grid-body no-border">
     <div class="toolbar">
       <div class="table-tools-action">
-        <%= link_to 'Add New Company', new_admin_company_path, class: "btn btn-primary" %>
+        <%= link_to 'Add New Company', new_admin_company_path, class: "btn btn-primary" %>        
       </div>
     </div>
     <table class="table table-striped">
@@ -26,12 +26,18 @@
         <% @companies.each do |company| %>
           <tr>
             <td><%= company.name %></td>
-            <td><%= link_to 'Show', company %></td>
-            <td><%= link_to 'Edit', edit_company_path(company) %></td>
-            <td><%= link_to 'Destroy', company, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+            <td><%= link_to 'Show', admin_company_path(company) %></td>
+            <td><%= link_to 'Edit', edit_admin_company_path(company) %></td>
+            <td><%= link_to 'Destroy', admin_company_path(company), method: :delete, data: { confirm: 'Are you sure?' } %></td>
           </tr>
         <% end %>
       </tbody>
     </table>
+    <%= paginate @companies %>
+    <h3> Import Companies </h3>
+    <%= form_tag import_admin_companies_path, multipart: true do %>
+      <%= file_field_tag :file, class: "form-control" %>
+      <%= submit_tag "Upload Companies" %>
+    <% end %>
   </div>
 </div>

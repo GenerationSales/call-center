@@ -7,7 +7,12 @@ Rails.application.routes.draw do
     resources :categories
     resources :contacts
     resources :campaigns
-    resources :companies
+    resources :companies do
+      collection do
+        post :import
+        get :import
+      end
+    end
   end
 
   resources :categories
@@ -17,7 +22,7 @@ Rails.application.routes.draw do
 
   resources :import
 
-  post 'import/upload' => 'import#upload'
+  
 
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
