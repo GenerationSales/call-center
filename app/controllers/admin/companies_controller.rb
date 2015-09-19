@@ -2,10 +2,24 @@ module Admin
   class CompaniesController < AdminController
     before_action :set_company, only: [:show, :edit, :update, :destroy]
 
+    require 'filterrific'
+
     # GET /companies
     # GET /companies.json
     def index
-      @companies = Company.all.page params[:page]
+      @filterrific = initialize_filterrific(
+      Company,
+      params[:filterrific],
+      select_options: {
+        sorted_by: Company.options_for_sorted_by,
+        with_country_id: Company.options_for_select
+      },
+      persistence_id: 'shared_key',
+      default_filter_params: {},
+      available_filters: [],
+    ) or return
+      @companies = Company.filterrific_find(@filterrific).page params[:page]
+
     end
 
     # GET /companies/1

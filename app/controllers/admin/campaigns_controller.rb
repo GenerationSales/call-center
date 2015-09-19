@@ -1,3 +1,4 @@
+module Admin
 class CampaignsController < ApplicationController
   before_action :set_campaign, only: [:show, :edit, :update, :destroy]
 
@@ -71,4 +72,5 @@ class CampaignsController < ApplicationController
     def campaign_params
       params.require(:campaign).permit(:name, :company_id, :start_date, :end_date)
     end
+end
 end

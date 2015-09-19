@@ -25,3 +25,4 @@
 //= require js/demo.js
 //= require js/dashboard_v2.js
 //= require ckeditor/init
+//= require plugins/bootstrap-datepicker/js/bootstrap-datepicker.js
