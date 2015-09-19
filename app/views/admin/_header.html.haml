@@ -1,0 +1,120 @@
+/ BEGIN HEADER
+.header.navbar.navbar-inverse
+  / BEGIN TOP NAVIGATION BAR
+  .navbar-inner
+    .header-seperation
+      %ul#main-menu-toggle-wrapper.nav.pull-left.notifcation-center{:style => "display:none"}
+        %li.dropdown
+          %a#main-menu-toggle{:href => "#main-menu"}
+            .iconset.top-menu-toggle-white
+      / BEGIN LOGO
+      = link_to("Excelerated Sales", root_path)
+      / END LOGO
+      %ul.nav.pull-right.notifcation-center
+        %li#header_task_bar.dropdown
+          = link_to root_path, class: "dropdown-toggle active" do
+            %i.fa.fa-home.fa-2x
+        %li#header_inbox_bar.dropdown
+          %a.dropdown-toggle{:href => "email.html"}
+            %i.fa.fa-envelope.fa-2x
+            %span#msgs-badge.badge 2
+        %li#portrait-chat-toggler.dropdown{:style => "display:none"}
+          %a.chat-menu-toggle{:href => "#sidr"}
+            .iconset.top-chat-white
+    / END RESPONSIVE MENU TOGGLER
+    .header-quick-nav
+      / BEGIN TOP NAVIGATION MENU
+      .pull-left
+        %ul.nav.quick-section
+          %li.quicklinks
+            %a#layout-condensed-toggle{:href => "#"}
+              .fa.fa-bars.fa-lg
+        %ul.nav.quick-section
+          %li.quicklinks
+            %a{:href => "#"}
+              .fa.fa-refresh.fa-lg
+          %li.quicklinks
+            %span.h-seperate
+          %li.quicklinks
+            %a{:href => "#"}
+              .fa.fa-tachometer.fa-lg
+          %li.m-r-10.input-prepend.inside.search-form.no-boarder
+            %span.add-on
+              %span.fa.fa-search.fa-lg
+            %input.no-boarder{:name => "", :placeholder => "Search Dashboard", :style => "width:250px;", :type => "text"}/
+      / END TOP NAVIGATION MENU
+      / BEGIN CHAT TOGGLER
+      .pull-right
+        .chat-toggler
+          %a#my-task-list.dropdown-toggle{"data-content" => "", "data-original-title" => "Notifications", "data-placement" => "bottom", "data-toggle" => "dropdown", :href => "#"}
+            .user-details
+              - unless current_user.nil?
+                .username
+                  %span.badge.badge-important 3
+                  = current_user.first_name
+                  %span.semi-bold= current_user.last_name
+            .fa.fa-chevron-down
+          #notification-list{:style => "display:none"}
+            %div{:style => "width:300px"}
+              .notification-messages.info
+                .user-profile
+                  %img{:alt => "", "data-src" => "assets/img/profiles/d.jpg", "data-src-retina" => "assets/img/profiles/d2x.jpg", :height => "35", :src => "assets/img/profiles/d.jpg", :width => "35"}/
+                .message-wrapper
+                  .heading David Nester - Commented on your wall
+                  .description Meeting postponed to tomorrow
+                  .date.pull-left A min ago
+                .clearfix
+              / End of messages info
+              .notification-messages.danger
+                .iconholder
+                  %i.icon-warning-sign
+                .message-wrapper
+                  .heading Server load limited
+                  .description Database server has reached its daily capicity
+                  .date.pull-left 2 mins ago
+                .clearfix
+              / End of messages Danger
+              .notification-messages.success
+                .user-profile
+                  %img{:alt => "", "data-src" => "assets/img/profiles/h.jpg", "data-src-retina" => "assets/img/profiles/h2x.jpg", :height => "35", :src => "assets/img/profiles/h.jpg", :width => "35"}/
+                .message-wrapper
+                  .heading You haveve got 150 messages
+                  .description 150 newly unread messages in your inbox
+                  .date.pull-left An hour ago
+                .clearfix
+              / End of messages Success
+            / end of width 300
+          / end of notification list
+          - if !current_user.nil? && current_user.avatar.present?
+            .profile-pic
+              = image_tag(current_user.avatar.url, size: "35")
+        %ul.nav.quick-section
+          %li.quicklinks
+            %a#user-options.dropdown-toggle.pull-right{"data-toggle" => "dropdown", :href => "#"}
+              .fa.fa-cog.fa-lg
+            %ul.dropdown-menu.pull-right{"aria-labelledby" => "user-options", :role => "menu"}
+              %li= link_to "My Account", edit_user_registration_path
+              %li
+                %a{:href => "calender.html"} My Calendar
+              %li
+                %a{:href => "email.html"}
+                  My Inbox  
+                  %span.badge.badge-important.animated.bounceIn 2
+              %li.divider
+              %li= link_to("Log Out", destroy_user_session_path , method: :delete)
+          %li.quicklinks
+            %span.h-seperate
+          %li.quicklinks
+            %a#chat-menu-toggle.chat-menu-toggle{:href => "#sidr"}
+              .fa.fa-comment.fa-lg
+                %span#chat-message-count.badge.badge-important.hide 1
+            .simple-chat-popup.chat-menu-toggle.hide
+              .simple-chat-popup-arrow
+              .simple-chat-popup-inner
+                %div{:style => "width:100px"}
+                  .semi-bold David Nester
+                  .message Hey you there
+      / END CHAT TOGGLER
+    / END TOP NAVIGATION MENU
+  / END TOP NAVIGATION BAR
+/ END HEADER

@@ -1,0 +1,44 @@
+.grid.simple
+  .grid-title.no-border
+    %h4 Companies
+    .tools
+      %a.collapse{:href => "javascript:;"}
+        %i.fa.fa-chevron-down
+      %a.config{"data-toggle" => "modal", :href => "#grid-config"}
+      %a.reload{:href => "javascript:;"}
+      %a.remove{:href => "javascript:;"}
+  .grid-body.no-border
+    .toolbar
+      .table-tools-action
+        = link_to 'Add New Company', new_admin_company_path, class: "btn btn-primary"
+    %table.table.table-striped
+      %thead
+        %tr
+          %th Name
+          %th Phone Number
+          %th Fax Number
+          %th Website
+          %th Employee Size
+          %th Revenue
+          %th Address
+          %th SIC Code
+          %th Industry
+      %tbody
+        - @companies.each do |company|
+          %tr
+            %td= link_to company.name, admin_company_path(company)
+            %td= number_to_phone(company.number, area_code: true)
+            %td= number_to_phone(company.fax, area_code: true)
+            %td= link_to company.website, company.website
+            %td= company.employee_size
+            %td= company.revenue
+            %td
+              = company.street
+              , #{company.city} #{company.state}, #{company.zip} #{company.county}
+            %td= company.sic_code
+            %td= company.industry
+    = paginate @companies
+    %h3 Import Companies
+    = form_tag import_admin_companies_path, multipart: true do
+      = file_field_tag :file, class: "form-control"
+      = submit_tag "Upload Companies"

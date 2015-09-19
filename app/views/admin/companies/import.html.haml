@@ -1,0 +1,18 @@
+= form_tag import_admin_companies_path do |f|
+  = hidden_field_tag(:csv, @file)
+  %table.table.table-striped
+    %thead
+      %tr
+        %th Import Field
+        %th Record
+        %th Mapping
+    %tbody
+      - @import_field = Array.new
+      - @import.first.each do |k,v|
+        - @import_field.push([k])
+        %tr
+          %td= k
+          %td= v
+          %td= select_tag 'fields[]',options_for_select(@fields), include_blank: true
+  = hidden_field_tag(:old_field, @import_field.to_a)
+  = submit_tag

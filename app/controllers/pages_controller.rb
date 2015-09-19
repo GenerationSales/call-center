@@ -1,6 +1,10 @@
 class PagesController < ApplicationController
 	layout 'frontend'
 	def show
-		@page = Page.friendly.find params[:id]
+		if !params[:id].nil?
+			@page = Page.friendly.find params[:id]
+		else
+			@page = Page.friendly.find 1
+		end
 	end
 end

@@ -1,0 +1,5 @@
+%h1= @category.name
+- @category.pages.each do |p|
+  %h2= link_to(p.title, page_path(p.slug))
+  %em= p.created_at.to_formatted_s :long
+  %hr/

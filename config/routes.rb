@@ -28,7 +28,7 @@ Rails.application.routes.draw do
   # See how all your routes lay out with "rake routes".
 
   # You can have the root of your site routed with "root"
-   root to: 'companies#index'
+   root to: 'pages#show'
    get ':id' => 'pages#show', as: :page
 
   # Example of regular route:

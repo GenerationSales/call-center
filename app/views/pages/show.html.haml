@@ -1,0 +1,6 @@
+%h1
+  = @page.title
+%em
+  = time_ago_in_words(@page.created_at)
+%p
+  = @page.body.html_safe

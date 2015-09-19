@@ -1,0 +1,189 @@
+!!!
+%html
+  %head
+    %meta{:content => "text/html;charset=UTF-8", "http-equiv" => "content-type"}/
+    %meta{:charset => "utf-8"}/
+    %title GSG
+    %meta{:content => "width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no", :name => "viewport"}/
+    %meta{:content => "", :name => "description"}/
+    %meta{:content => "", :name => "author"}/
+    = stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true
+    = javascript_include_tag 'application', 'data-turbolinks-track' => true
+    = csrf_meta_tags
+  %body
+    = render('admin/header')
+    / BEGIN CONTAINER
+    .page-container.row-fluid
+      = render('admin/sidebar')
+      / BEGIN PAGE CONTAINER
+      .page-content
+        / BEGIN SAMPLE PORTLET CONFIGURATION MODAL FORM
+        #portlet-config.modal.hide
+          .modal-header
+            %button.close{"data-dismiss" => "modal", :type => "button"}
+            %h3 Widget Settings
+          .modal-body Widget settings form goes here
+        .clearfix
+        .content.sm-gutter
+          %p.notice= notice
+          - if alert
+            %p.alert= alert
+          = yield
+      / BEGIN CHAT
+      .chat-window-wrapper
+        #main-chat-wrapper.inner-content
+          #chat-users.chat-window-wrapper.scroller.scrollbar-dynamic
+            .chat-header
+              .pull-left
+                %input{:placeholder => "search", :type => "text"}/
+              .pull-right
+                %a{:href => "#"}
+                  .iconset.top-settings-dark
+            .side-widget
+              .side-widget-title group chats
+              .side-widget-content
+                #groups-list
+                  %ul.groups
+                    %li
+                      %a{:href => "#"}
+                        .status-icon.green>
+                        Office work
+                    %li
+                      %a{:href => "#"}
+                        .status-icon.green>
+                        Personal vibes
+            .side-widget.fadeIn
+              .side-widget-title favourites
+              #favourites-list
+                .side-widget-content
+                  .user-details-wrapper.active{"data-chat-status" => "online", "data-chat-user-pic" => "assets/img/profiles/d.jpg", "data-chat-user-pic-retina" => "assets/img/profiles/d2x.jpg", "data-user-name" => "Jane Smith"}
+                    .user-profile
+                      %img{:alt => "", "data-src" => "assets/img/profiles/d.jpg", "data-src-retina" => "assets/img/profiles/d2x.jpg", :height => "35", :src => "assets/img/profiles/d.jpg", :width => "35"}/
+                    .user-details
+                      .user-name
+                        Jane Smith
+                      .user-more
+                        Hello you there?
+                    .user-details-status-wrapper
+                      %span.badge.badge-important 3
+                    .user-details-count-wrapper
+                      .status-icon.green
+                    .clearfix
+                  .user-details-wrapper{"data-chat-status" => "busy", "data-chat-user-pic" => "assets/img/profiles/d.jpg", "data-chat-user-pic-retina" => "assets/img/profiles/d2x.jpg", "data-user-name" => "David Nester"}
+                    .user-profile
+                      %img{:alt => "", "data-src" => "assets/img/profiles/c.jpg", "data-src-retina" => "assets/img/profiles/c2x.jpg", :height => "35", :src => "assets/img/profiles/c.jpg", :width => "35"}/
+                    .user-details
+                      .user-name
+                        David Nester
+                      .user-more
+                        Busy, Do not disturb
+                    .user-details-status-wrapper
+                      .clearfix
+                    .user-details-count-wrapper
+                      .status-icon.red
+                    .clearfix
+            .side-widget
+              .side-widget-title more friends
+              #friends-list.side-widget-content
+                .user-details-wrapper{"data-chat-status" => "online", "data-chat-user-pic" => "assets/img/profiles/d.jpg", "data-chat-user-pic-retina" => "assets/img/profiles/d2x.jpg", "data-user-name" => "Jane Smith"}
+                  .user-profile
+                    %img{:alt => "", "data-src" => "assets/img/profiles/d.jpg", "data-src-retina" => "assets/img/profiles/d2x.jpg", :height => "35", :src => "assets/img/profiles/d.jpg", :width => "35"}/
+                  .user-details
+                    .user-name
+                      Jane Smith
+                    .user-more
+                      Hello you there?
+                  .user-details-status-wrapper
+                  .user-details-count-wrapper
+                    .status-icon.green
+                  .clearfix
+                .user-details-wrapper{"data-chat-status" => "busy", "data-chat-user-pic" => "assets/img/profiles/d.jpg", "data-chat-user-pic-retina" => "assets/img/profiles/d2x.jpg", "data-user-name" => "David Nester"}
+                  .user-profile
+                    %img{:alt => "", "data-src" => "assets/img/profiles/h.jpg", "data-src-retina" => "assets/img/profiles/h2x.jpg", :height => "35", :src => "assets/img/profiles/h.jpg", :width => "35"}/
+                  .user-details
+                    .user-name
+                      David Nester
+                    .user-more
+                      Busy, Do not disturb
+                  .user-details-status-wrapper
+                    .clearfix
+                  .user-details-count-wrapper
+                    .status-icon.red
+                  .clearfix
+                .user-details-wrapper{"data-chat-status" => "online", "data-chat-user-pic" => "assets/img/profiles/d.jpg", "data-chat-user-pic-retina" => "assets/img/profiles/d2x.jpg", "data-user-name" => "Jane Smith"}
+                  .user-profile
+                    %img{:alt => "", "data-src" => "assets/img/profiles/c.jpg", "data-src-retina" => "assets/img/profiles/c2x.jpg", :height => "35", :src => "assets/img/profiles/c.jpg", :width => "35"}/
+                  .user-details
+                    .user-name
+                      Jane Smith
+                    .user-more
+                      Hello you there?
+                  .user-details-status-wrapper
+                  .user-details-count-wrapper
+                    .status-icon.green
+                  .clearfix
+                .user-details-wrapper{"data-chat-status" => "busy", "data-chat-user-pic" => "assets/img/profiles/d.jpg", "data-chat-user-pic-retina" => "assets/img/profiles/d2x.jpg", "data-user-name" => "David Nester"}
+                  .user-profile
+                    %img{:alt => "", "data-src" => "assets/img/profiles/h.jpg", "data-src-retina" => "assets/img/profiles/h2x.jpg", :height => "35", :src => "assets/img/profiles/h.jpg", :width => "35"}/
+                  .user-details
+                    .user-name
+                      David Nester
+                    .user-more
+                      Busy, Do not disturb
+                  .user-details-status-wrapper
+                    .clearfix
+                  .user-details-count-wrapper
+                    .status-icon.red
+                  .clearfix
+          #messages-wrapper.chat-window-wrapper{:style => "display:none"}
+            .chat-header
+              .pull-left
+                %input{:placeholder => "search", :type => "text"}/
+              .pull-right
+                %a{:href => "#"}
+                  .iconset.top-settings-dark
+            .clearfix
+            .chat-messages-header
+              .status.online
+              %span.semi-bold Jane Smith(Typing..)
+              %a.chat-back{:href => "#"}
+                %i.icon-custom-cross
+            .chat-messages.scrollbar-dynamic.clearfix
+              .inner-scroll-content.clearfix
+                .sent_time Yesterday 11:25pm
+                .user-details-wrapper
+                  .user-profile
+                    %img{:alt => "", "data-src" => "assets/img/profiles/d.jpg", "data-src-retina" => "assets/img/profiles/d2x.jpg", :height => "35", :src => "assets/img/profiles/d.jpg", :width => "35"}/
+                  .user-details
+                    .bubble
+                      Hello, You there?
+                  .clearfix
+                  .sent_time.off Yesterday 11:25pm
+                .user-details-wrapper
+                  .user-profile
+                    %img{:alt => "", "data-src" => "assets/img/profiles/d.jpg", "data-src-retina" => "assets/img/profiles/d2x.jpg", :height => "35", :src => "assets/img/profiles/d.jpg", :width => "35"}/
+                  .user-details
+                    .bubble
+                      How was the meeting?
+                  .clearfix
+                  .sent_time.off Yesterday 11:25pm
+                .user-details-wrapper
+                  .user-profile
+                    %img{:alt => "", "data-src" => "assets/img/profiles/d.jpg", "data-src-retina" => "assets/img/profiles/d2x.jpg", :height => "35", :src => "assets/img/profiles/d.jpg", :width => "35"}/
+                  .user-details
+                    .bubble
+                      Let me know when you free
+                  .clearfix
+                  .sent_time.off Yesterday 11:25pm
+                .sent_time Today 11:25pm
+                .user-details-wrapper.pull-right
+                  .user-details
+                    .bubble.sender
+                      Let me know when you free
+                  .clearfix
+                  .sent_time.off Sent On Tue, 2:45pm
+            .chat-input-wrapper{:style => "display:none"}
+              %textarea#chat-message-input{:placeholder => "Type your message", :rows => "1"}
+            .clearfix
+      / END CHAT
+    / END CONTAINER
