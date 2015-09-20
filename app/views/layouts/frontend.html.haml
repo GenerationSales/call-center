@@ -36,7 +36,7 @@
                   %li
                     %a{:href => "portfolio.html"} Portfolio
                   %li
-                    %a{:href => "contact.html"} Contact
+                    = link_to 'Login', new_user_session_path
               / /.nav-collapse
       .section.ha-waypoint{"data-animate-down" => "ha-header-hide", "data-animate-up" => "ha-header-hide"}
         .navbar.navbar-transparent.navbar-top{:role => "navigation"}
@@ -61,7 +61,7 @@
                   %li
                     %a{:href => "portfolio.html"} Portfolio
                   %li
-                    %a{:href => "contact.html"} Contact
+                    = link_to 'Login', new_user_session_path
               / /.nav-collapse
         / BEGIN SLIDER
         .tp-banner-container
